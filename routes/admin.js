@@ -24,7 +24,7 @@ router.post("/signin", async (req, res) => {
   try {
     const { login, password } = req.body;
     const admin = await Admin.findOne({ where: { login, password } });
-    if (!admin) res.status(404).json("wrong credentials");
+    if (!admin) return res.status(404).json("wrong credentials");
     const token = jwt.sign({ id: admin.id }, "secret admin");
     res.status(200).json({ access: token });
   } catch (err) {
@@ -37,6 +37,19 @@ router.get("/users", verify, async (req, res) => {
   try {
     const user = await User.findAll();
     if (!user) return res.status(404).json("something went wrong");
+    res.status(200).json(user);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//get user by cne
+router.get("/users/:id", verify, async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const user = await User.findOne({ where: { cne: id } });
+    if (!user) return res.status(404).json("not found");
     res.status(200).json(user);
   } catch (err) {
     res.status(500).json(err);
