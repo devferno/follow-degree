@@ -6,6 +6,7 @@ require("dotenv").config();
 const adminRoute = require("./routes/admin");
 app.use(cors());
 app.use(express.json());
+//test
 app.use("/users", userRoute);
 app.use("/admin", adminRoute);
 
