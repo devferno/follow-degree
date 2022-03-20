@@ -20,11 +20,13 @@ endpoints:
 
 /admin
 
-Post ---/signin--->signin to the app  
+Post ---/signin--->signin to the app
 
 Get ---/users--->get all users
 
 Post ---/users/:id--->update the state of a user
+
+Get ---/users/:id--->get one user
 
 /users
 
