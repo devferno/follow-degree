@@ -1,4 +1,4 @@
-const { DataTypes } = require("sequelize");
+const { DataTypes, DATE } = require("sequelize");
 const sequelize = require("../newdb");
 const User = sequelize.define(
   "User",
@@ -28,6 +28,12 @@ const User = sequelize.define(
     reasonOfDegree: {
       type: DataTypes.TEXT,
       allowNull: true,
+    },
+    createdAt: {
+      type: DATE,
+    },
+    updatedAt: {
+      type: DATE,
     },
   },
   { tableName: "User" }
