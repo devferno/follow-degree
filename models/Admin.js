@@ -15,8 +15,12 @@ const Admin = sequelize.define(
     status: { defaultValue: "admin", type: DataTypes.STRING },
     login: { type: DataTypes.STRING, allowNull: false },
     password: { type: DataTypes.STRING, allowNull: false },
-    createAt: { type: DATE },
-    updatedAt: { type: DATE },
+    createdAt: {
+      type: DATE,
+    },
+    updatedAt: {
+      type: DATE,
+    },
   },
   { tableName: "Admin" }
 );

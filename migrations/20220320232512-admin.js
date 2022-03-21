@@ -19,7 +19,7 @@ module.exports = {
         status: { defaultValue: "admin", type: DataTypes.STRING },
         login: { type: DataTypes.STRING, allowNull: false },
         password: { type: DataTypes.STRING, allowNull: false },
-        createAt: { type: DATE },
+        createdAt: { type: DATE },
         updatedAt: { type: DATE },
       },
       { tableName: "Admin" }
